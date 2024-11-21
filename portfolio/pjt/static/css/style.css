@@ -1,0 +1,63 @@
+
+h1{
+
+
+    text-align: center;
+
+
+}
+footer{
+
+
+height: 30px;
+background-color: black;
+
+
+}
+
+
+body{
+
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+
+}
+
+.border {                                                                                           
+    background-color: yellow;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+
+  
+  }
+  .inner{
+
+    display: flex;
+    justify-content: center;
+    text-align: center;
+
+  }
+
+  .block{
+
+    background-color: black;
+    border-radius: 10px;
+    width: 100px;
+    height : 100px;
+    margin : 10px;
+
+  }
+  .lotto{
+
+  }
+
+  .block:hover{
+
+    transform: scale(1.1);
+  }
+
+
+  
