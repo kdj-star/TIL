@@ -39,19 +39,21 @@ function ChangeNumber() {
 
         num.push(tmp);   
     }    
-            
+    
+    num.sort((a, b) => a - b)
+    
     lotto[0] = document.getElementById('lotto1');
     lotto[1] = document.getElementById('lotto2');
     lotto[2] = document.getElementById('lotto3');
     lotto[3] = document.getElementById('lotto4');
     lotto[4] = document.getElementById('lotto5');
     lotto[5] = document.getElementById('lotto6');
-    lotto[6] = document.getElementById('lotto7');
   
+
     for(i=0;i<7;i++)
     {
-        lotto[i].innerText = num[i]; 
-        lotto[i].style.backgroundColor = color[parseInt(num[i]/10)];
+        lotto[i].innerText = num[i];
+        lotto[i].style.backgroundColor = color[parseInt(num[i]/10)];    
     }
         
 
