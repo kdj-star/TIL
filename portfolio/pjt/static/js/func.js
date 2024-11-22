@@ -50,7 +50,7 @@ function ChangeNumber() {
     lotto[5] = document.getElementById('lotto6');
   
 
-    for(i=0;i<7;i++)
+    for(i=0;i<6;i++)
     {
         lotto[i].innerText = num[i];
         lotto[i].style.backgroundColor = color[parseInt(num[i]/10)];    
@@ -59,3 +59,29 @@ function ChangeNumber() {
 
 
 }
+
+function practice_image(){
+
+   image = document.getElementById('practice-image');
+
+   image.src = "https://dummyimage.com/400x400/f00/fff"
+
+
+}
+
+function practice_ptag(){
+
+    image = document.getElementById('practice-ptag');
+ 
+    image.innerText = "변경됨"
+ 
+ 
+ }
+
+ function practice_div(){
+
+    image = document.getElementById('practice-div');
+ 
+    image.style.backgroundColor = 'gray'
+ 
+ }

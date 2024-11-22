@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="border" style="justify-content: center; align-items: center;">
+
+    <img id="practice-image" src="https://dummyimage.com/400x400/000/fff" alt="" style="width: 400px; height: 400px;">
+    <button style="width: 380px; height: 50px; border-radius:5px; margin: 10px;" onclick="practice_image()">btn</button>
+    
+    <p id="practice-ptag" align="left">p 태그 연습</p>
+    <button style="width: 380px; height: 50px; border-radius:5px; margin: 10px;" onclick="practice_ptag()">btn</button>
+
+    <div id="practice-div" style="background-color: red; width:200px; height:200px; justify-content: center; align-items:center;">
+        <p style="font-size: 20px; margin-top: 90px;  color: azure;">div 연습</p>
+    </div>    
+    <button style="width: 380px; height: 50px; border-radius:5px; margin: 10px;" onclick="practice_div()">btn</button>
+
+</div>
+
+
+
+{% endblock %}

@@ -24,4 +24,5 @@ app_name = "apps"
 urlpatterns = [
     path('', views.index,name="index"),
     path('lotto/', views.lotto,name="lotto"),
+    path('practice/', views.practice,name="practice"),
 ]
