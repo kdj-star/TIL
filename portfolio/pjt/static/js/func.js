@@ -64,8 +64,10 @@ function practice_image(){
 
    image = document.getElementById('practice-image');
 
-   image.src = "https://dummyimage.com/400x400/0f0/00f";
-
+   if(image.src == "https://dummyimage.com/400x400/0f0/00f")
+        image.src = "https://dummyimage.com/400x400/000/fff";
+   else
+        image.src = "https://dummyimage.com/400x400/0f0/00f";
 
 }
 
@@ -82,8 +84,12 @@ function practice_ptag(){
 
     image = document.getElementById('practice-div');
  
-    image.style.backgroundColor = 'gray';
- 
+    if(image.style.backgroundColor == "black")
+        image.style.backgroundColor = 'gray';
+    else
+        image.style.backgroundColor = 'black';
+
+
  }
 
  function a(){
