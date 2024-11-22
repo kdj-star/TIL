@@ -64,7 +64,7 @@ function practice_image(){
 
    image = document.getElementById('practice-image');
 
-   image.src = "https://dummyimage.com/400x400/f00/fff"
+   image.src = "https://dummyimage.com/400x400/0f0/00f";
 
 
 }
@@ -73,7 +73,7 @@ function practice_ptag(){
 
     image = document.getElementById('practice-ptag');
  
-    image.innerText = "변경됨"
+    image.innerText = "변경됨";
  
  
  }
@@ -82,6 +82,21 @@ function practice_ptag(){
 
     image = document.getElementById('practice-div');
  
-    image.style.backgroundColor = 'gray'
+    image.style.backgroundColor = 'gray';
  
+ }
+
+ function a(){
+
+
+    alert('a')
+
+    image = document.getElementById('practice-image');
+
+    alert(image);
+
+    image.src = "https://dummyimage.com/400x400/000/0ff"
+ 
+ 
+
  }
