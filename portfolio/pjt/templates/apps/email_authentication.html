@@ -3,5 +3,20 @@
 
 <h1>이메일 인증 연습</h1>
 
+<div id="email-input-form">
+    <p>이메일 입력</p>
+    <div class="form-group">
+      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+    </div>
+    <button onclick="email()" class="btn btn-primary">Submit</button>
+</div>
+
+<div id="code-input-form" style="display: none;">
+    <p>코드 입력</p>
+    <div class="form-group">
+      <input type="text" id="code-input">
+    </div>
+    <button onclick="code()" class="btn btn-primary">Submit</button>
+</div>
 
 {% endblock %}

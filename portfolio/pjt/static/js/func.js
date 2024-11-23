@@ -113,8 +113,42 @@ function practice_ptag(){
 
     alert('1');
 
-    email_input = document.getElementById('email');
+    const pattern = /^[A-Za-z0-9_\.\-]+@[A-Za-z0-9\-]+\.[A-za-z0-9\-]+/;
 
-    email.style.diplay = 'none';
+    let email_input = document.getElementById('exampleInputEmail1').value;
+
+    let email_input_form = document.getElementById('email-input-form');
+    let code_input_form = document.getElementById('code-input-form');
+
+    let code = '000000'
+
+    if(pattern.test(email_input) === true)
+    {
+        alert('ok');
+        email_input_form.style.display='none';
+        code_input_form.style.display='block';
+    }
+    else
+        alert('not ok');
+
+ }
+
+ function code(){
+
+  
+    let code_input = document.getElementById('code-input').value;
+
+    let code_input_form = document.getElementById('code-input-form');
+
+    let code = "000000"
+
+    if( code_input === code )
+    {
+        alert('ok');
+    }
+    else
+        alert('not ok');
+
+
 
  }
