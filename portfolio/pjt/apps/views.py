@@ -29,3 +29,8 @@ def practice(request):
 
     return render(request,'apps/practice.html')
 
+def email_authentication(request):
+    
+
+    return render(request,'apps/email_authentication.html')
+

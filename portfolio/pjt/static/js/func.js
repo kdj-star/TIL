@@ -106,3 +106,15 @@ function practice_ptag(){
  
 
  }
+
+ document.getElementById("email").addEventListener('click',email);
+
+ function email(){
+
+    alert('1');
+
+    email_input = document.getElementById('email');
+
+    email.style.diplay = 'none';
+
+ }

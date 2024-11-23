@@ -25,4 +25,6 @@ urlpatterns = [
     path('', views.index,name="index"),
     path('lotto/', views.lotto,name="lotto"),
     path('practice/', views.practice,name="practice"),
+    path('email_authentication',views.email_authentication,name="email_authentication"),
+
 ]
