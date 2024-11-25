@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load bootstrap4 %}
+{% block content %}
+<div class="container" style="background-color: yellow; display: flex; justify-content: center; align-items: center;">
+    <div>
+        <img id="display_image" src="https://dummyimage.com/300x300/000/fff" alt="" style="height: 300px; border-radius: 20px; margin: 10px;">
+        <form method="POST" action="{% url 'apps:fileupload' %}" enctype="multipart/form-data">
+            {% csrf_token %}
+            {% bootstrap_form fileuploadForm %}
+            <input type="submit" class="btn btn-primary col-12" value="제출" style="width: 300px;">
+        </form>
+    </div>
+</div>
+
+<script>
+    function readURL(input) {
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+        reader.onload = function(e) {
+        document.getElementById('display_image').src = e.target.result;
+        };
+        reader.readAsDataURL(input.files[0]);
+    } else {
+        document.getElementById('display_image').src = "";
+    }
+    }
+</script>
+{% endblock%}

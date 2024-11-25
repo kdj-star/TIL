@@ -26,5 +26,7 @@ urlpatterns = [
     path('lotto/', views.lotto,name="lotto"),
     path('practice/', views.practice,name="practice"),
     path('email_authentication',views.email_authentication,name="email_authentication"),
+    path('image_practice/', views.image_practice,name="image_practice"),
+    path('fileupload/', views.fileUpload, name="fileupload"),
 
 ]
