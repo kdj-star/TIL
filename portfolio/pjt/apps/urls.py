@@ -28,5 +28,6 @@ urlpatterns = [
     path('email_authentication',views.email_authentication,name="email_authentication"),
     path('image_practice/', views.image_practice,name="image_practice"),
     path('fileupload/', views.fileUpload, name="fileupload"),
+    path('display_image/', views.display_image, name="display_image"),
 
 ]

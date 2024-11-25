@@ -87,10 +87,25 @@ def fileUpload(request):
             imgfile=img,
         )
         fileupload.save()
-        return redirect('apps:fileupload')
+        return redirect('apps:index')
     else:
         fileuploadForm = FileUploadForm
         context = {
             'fileuploadForm': fileuploadForm,
         }
         return render(request, 'apps/fileupload.html', context)
+    
+def display_image(request):
+
+    images = FileUpload.objects.all() 
+
+
+
+    context = {
+            'A': 'A',
+            'images' : images
+    }
+
+    return render(request, 'apps/display_image.html', context)
+
+

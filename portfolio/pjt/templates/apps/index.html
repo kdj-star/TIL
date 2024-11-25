@@ -11,11 +11,11 @@
     <div class="inner">
         <div class="block" onclick="goto_url()"></div>
         <a href="{% url 'apps:email_authentication' %}"><div class="block"></div></a>
-        <div class="block"></div>
+        <a href="{% url 'apps:display_image' %}"><div class="block"></div></a>
     </div>
 
     <div class="inner">
-        <div class="block"></div>
+        <a href="{% url 'apps:fileupload' %}"><div class="block"></div></a>
         <div class="block"></div>
         <div class="block" style="background-color: aqua;"></div>
     </div>

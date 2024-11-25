@@ -13,6 +13,7 @@ class FileUploadForm(ModelForm):
                 'class': "form-control",
                 'style': 'width: 300px;',
                 'placeholder': 'title'
+
                 }),
             'imgfile': FileInput(attrs={
                 'class': "form-control",
@@ -20,10 +21,10 @@ class FileUploadForm(ModelForm):
                 'id':'image-file',
                  'onchange': "readURL(this);"
                 }),
-            'content': NumberInput(attrs={
+            'content': TextInput(attrs={
                 'class': "form-control",
                 'style': 'width: 300px; height:100px;',
-                'placeholder': 'content'
+                'placeholder': 'content',
             }),
 
         }
