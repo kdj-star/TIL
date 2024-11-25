@@ -100,4 +100,16 @@ function practice_ptag(){
 
  }
 
+const button1 = document.querySelector('#button1');
+const button2 = document.querySelector('#button2');
+//1번
+const print = () => {
+    alert('button1');
+}
+button1.addEventListener('click', print);
+
+button2.addEventListener('click', () => {
+    alert('button2');
+});
+
 

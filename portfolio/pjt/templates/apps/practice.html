@@ -11,8 +11,26 @@
     <div id="practice-div" style="background-color: black; width:500px; height: 500px; border-radius: 25px; margin:10px;"></div>
     <button  onclick="practice_div()"style='width:200px; height:50; border-radius:5px; margin:10px;'>btn</button>
 
-</div>
+    
+    <button id='button1' style="margin:50px;" >button1</button>
+    <button id='button2' style="margin:50px;" >button2</button>    
 
+</div>
+<script>
+
+    const button1 = document.querySelector('#button1');
+    const button2 = document.querySelector('#button2');
+    //1번
+    const print = () => {
+    	alert('button1');
+    }
+	button1.addEventListener('click', print);
+
+    button2.addEventListener('click', () => {
+   	    alert('button2');
+   });
+
+</script>
 
 
 {% endblock %}
