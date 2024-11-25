@@ -1,9 +1,12 @@
 {% extends 'base.html' %}
 {% block content %}
-<div class="image_display" style="height: 220px; width: 1200px; margin:20px; overflow: auto;  white-space: nowrap;margin-left: auto; margin-right: auto;" >
-    {% for i in images %}      
+<div style="display: flex;">   
+    <button style="margin-left: 10px;">◁</button>
+    <div class="image_display" style="height: 220px; width: 1200px; margin:20px; overflow: auto;  white-space: nowrap;margin-left: auto; margin-right: auto;" >
+        {% for i in images %}      
         <img src="{{ i.imgfile.url }}" alt="" style="height: 200px; margin: 5px">
-    {% endfor %}
+        {% endfor %}
+    </div>
+    <button style="margin-right: 10px;">▷</button>
 </div>
-
 {% endblock %}
