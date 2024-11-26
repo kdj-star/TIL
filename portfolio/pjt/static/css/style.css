@@ -77,12 +77,6 @@ body{
   }
 
 
-#image_display{
-    -ms-overflow-style: none;
- }
- #image_display::-webkit-scrollbar{
-   display:none;
- }
 
 
   

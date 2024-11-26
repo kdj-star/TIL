@@ -1,35 +1,77 @@
 {% extends 'base.html' %}
-{% block content %}
+{% block style %}
+    
 
-<div style="display: flex;">   
-    <button onclick="Right()" >◀</button>
-    <div id="image_display" style="height: 220px; width: 1200px; margin:20px; overflow: auto;  white-space: nowrap;margin-left: auto; margin-right: auto;" >
+{% endblock %}
+{% block content %}
+<h1 style="margin-top:100px;">새로 업로드 된 사진</h1>
+<div style="display: flex; width: 1600px; margin: 0 auto; margin-top: 20px;">   
+    <button onclick="RightNew()" style="height: 50px; width: 50px; margin: 20px; margin-top: 120px;" >◀</button>
+    <div id="new-image-display" style="height: 250px; width: 1500px; margin-top: 30px;  overflow: auto;  white-space: nowrap; margin-left: auto; margin-right: auto;" >
         {% for i in images %}      
         <img src="{{ i.imgfile.url }}" alt="" style="height: 200px; margin: 5px">
         {% endfor %}
     </div>
-    <button onclick="Left()" >▶</button>
-
+    <button onclick="LeftNew()" style="height: 50px; width: 50px; margin: 20px; margin-top: 120px;" >▶</button>
 </div>
+
+<h1 style="margin-top:100px;">인기 사진</h1>
+<div style="display: flex; width: 1600px; margin: 0 auto; margin-top: 20px;">   
+    <button onclick="RightHot()" style="height: 50px; width: 50px; margin: 20px; margin-top: 120px;" >◀</button>
+    <div id="hot-image-display" style="height: 250px; width: 1500px; margin-top: 30px;  overflow: auto;  white-space: nowrap; margin-left: auto; margin-right: auto;" >
+        {% for i in images %}      
+        <img src="{{ i.imgfile.url }}" alt="" style="height: 200px; margin: 5px">
+        {% endfor %}
+    </div>
+    <button onclick="LeftHot()" style="height: 50px; width: 50px; margin: 20px; margin-top: 120px;" >▶</button>
+</div>
+<style>
+    #new-image-display{
+        -ms-overflow-style: none;
+    }
+    #new-image-display::-webkit-scrollbar{
+    display:none;
+    }
+    #hot-image-display{
+        -ms-overflow-style: none;
+    }
+    #hot-image-display::-webkit-scrollbar{
+    display:none;
+    }
+</style>
 <script>
 
-    let pos = 0;
+    let Newpos = 0;
 
-    function Left(){
-        pos = pos+100;
+    function LeftNew(){
+        Newpos = Newpos+100;
         //alert(pos);
-        $( '#image_display' ).scrollLeft( pos );
+        $( '#new-image-display' ).scrollLeft( Newpos );
     }
     
-    function Right(){
-        pos = pos-100;
-        if(pos<0)
-            pos = 0;
+    function RightNew(){
+        Newpos = Newpos-100;
+        if(Newpos<0)
+        Newpos = 0;
         //alert(pos);
-        $( '#image_display' ).scrollLeft( pos );
+        $( '#new-image-display' ).scrollLeft( Newpos );
     }
     
+    let Hotpos = 0;
+
+    function LeftHot(){
+        Hotpos = Hotpos+100;
+        //alert(pos);
+        $( '#hot-image-display' ).scrollLeft( Hotpos );
+    }
     
+    function RightHot(){
+        Hotpos = Hotpos-100;
+        if(Hotpos<0)
+            Hotpos = 0;
+        //alert(pos);
+        $( '#hot-image-display' ).scrollLeft( Hotpos );
+    }
     
  </script> 
 {% endblock %}

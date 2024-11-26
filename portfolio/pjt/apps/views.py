@@ -113,8 +113,6 @@ def carousel(request):
 
     images = FileUpload.objects.all() 
 
-
-
     context = {
             'A': 'A',
             'images' : images
