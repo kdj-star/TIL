@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% load django_bootstrap5 %}
+
+{% block title %}{{user}}님 의 프로필 정보{% endblock title %}
+
+{% block content %}
+
+    <h1>{{ User }} 프로필</h1>
+
+    <div class="d-flex align-items-center" style="margin:50px;">
+        <div style="width:300; height:300px; padding:30px; margin:10px;">
+            {% if User.profile_image  %}
+                <img src="{{User.profile_image.url}}" class="card-img-top"  style="width:auto; height:100%; border-radius: 50% ;" alt="" >
+            {% else %}
+                <p>없다</p>
+                {% comment %} <img src="{% static 'images/blank_image.jpg' %}" class="card-img-top" style="width:auto; height:100%; border-radius: 50% ;" alt=""> {% endcomment %}
+            {% endif %}
+        </div>
+
+        <div sytle="margin:0px;" style="width:300px;">
+            <p> {{ User.last_name }}{{ User.first_name }} </p>
+            <p> {{ User.email }} </p>
+            <a href="{% url 'accounts:edit_profile' user.username %}">프로필 편집</a>
+        </div> 
+
+    </div>
+
+
+
+{% endblock content %}

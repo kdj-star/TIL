@@ -1,0 +1,179 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<ul class="nav">
+  <li class="nav-item">
+    <a class="nav-link active" style="padding:10px;" aria-current="page" href="#">Active</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" style="padding:10px;" href="#">Link</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" style="padding:10px;" href="#">Link</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link disabled" style="padding:10px;">Disabled</a>
+  </li>
+</ul>
+<div class="banner" style="display:flex; justify-content:center; align-items:center; height:300px; width:100%;">
+  <div class="area-2" >
+    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active" style="height:300px;">
+          <img style="height:300px; width:1000px;"  src="https://dummyimage.com/800x300/f00/fff" alt="...">
+        </div>
+        <div class="carousel-item active" style="height:300px;">
+          <img style="height:300px; width:1000px;"  src="https://dummyimage.com/800x300/0f0/fff" alt="...">
+        </div>
+        <div class="carousel-item active" style="height:300px;">
+          <img style="height:300px; width:1000px;"  src="https://dummyimage.com/800x300/00f/fff" alt="...">
+        </div>
+        <div class="carousel-item active" style="height:300px;">
+          <img style="height:300px; width:1000px;"  src="https://dummyimage.com/800x300/f00/ff" alt="...">
+        </div>
+      </div>
+
+
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
+        data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
+        data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+  </div>
+</div>
+<div class="menu-button-container d-flex justify-content-center align-items-center" style="margin:10px; width:100%;">
+  <div class="menu-button d-flex justify-content-center align-items-center"
+    style="margin:10px; width:80px; height:80px; border-radius:15px; overflow:hidden;">
+    <a href="">
+      <img src="{% static 'button_img/free-icon-toy-car-1863995.png' %}"
+        style="width:100%; height:100%;  object-fit:cover;" alt="">
+    </a>
+  </div>
+  <div class="menu-button d-flex justify-content-center align-items-center"
+    style="margin:10px; width:80px; height:80px; border-radius:15px; overflow:hidden;">
+    <a href="">
+      <img src="{% static 'button_img/free-icon-reward-6778954.png' %}"
+        style="width:100%; height:100%;  object-fit:cover;" alt="">
+    </a>
+  </div>
+  <div class="menu-button d-flex justify-content-center align-items-center"
+    style="margin:10px; width:80px; height:80px; border-radius:15px; overflow:hidden;">
+    <a href="">
+      <img src="{% static 'button_img/free-icon-kitchen-cabinet-5334944.png' %}"
+        style="width:100%; height:100%;  object-fit:cover;" alt="">
+    </a>
+  </div>
+  <div class="menu-button d-flex justify-content-center align-items-center"
+    style="margin:10px; width:80px; height:80px; border-radius:15px; overflow:hidden;">
+    <a href="">
+      <img src="{% static 'button_img/free-icon-double-bed-4269172.png' %}"
+        style="width:100%; height:100%;  object-fit:cover;" alt="">
+    </a>
+  </div>
+  <div class="menu-button d-flex justify-content-center align-items-center"
+    style="margin:10px; width:80px; height:80px; border-radius:15px; overflow:hidden;">
+    <a href="">
+      <img src="{% static 'button_img/free-icon-books-stack-of-three-29302.png' %}"
+        style="width:100%; height:100%;  object-fit:cover;" alt="">
+    </a>
+  </div>
+  <div class="menu-button d-flex justify-content-center align-items-center"
+    style="margin:10px; width:80px; height:80px; border-radius:15px; overflow:hidden;">
+    <a href="">
+      <img src="{% static 'button_img/free-icon-desk-1909114.png' %}"
+        style="width:100%; height:100%;  object-fit:cover;" alt="">
+    </a>
+  </div>
+  <div class="menu-button d-flex justify-content-center align-items-center"
+    style="margin:10px; width:80px; height:80px; border-radius:15px; overflow:hidden;">
+    <a href="">
+      <img src="{% static 'button_img/free-icon-giftbox-1139982.png' %}"
+        style="width:100%; height:100%;  object-fit:cover;" alt="">
+    </a>
+  </div>
+  <div class="menu-button d-flex justify-content-center align-items-center"
+    style="margin:10px; width:80px; height:80px; border-radius:15px; overflow:hidden;">
+    <a href="">
+      <img src="{% static 'button_img/free-icon-clock-2972531.png' %}"
+        style="width:100%; height:100%;  object-fit:cover;" alt="">
+    </a>
+  </div>
+  <div class="menu-button d-flex justify-content-center align-items-center"
+    style="margin:10px; width:80px; height:80px; border-radius:15px; overflow:hidden;">
+    <a href="">
+      <img src="{% static 'button_img/free-icon-shuttle-2285485.png' %}"
+        style="width:100%; height:100%;  object-fit:cover;" alt="">
+    </a>
+  </div>
+
+</div>
+
+<div class="card-container" style='margin-top:15px; border:0.5px solid gray; margin:10px;'>
+  <div class="d-flex justify-content-between align-items-center" style="margin:5px; margin-left:20px; margin-right:20px;">
+    <div class="title" style="margin:5px; font-size:1.5rem;">주제 없음</div>
+    <a href="#">더보기</a>
+  </div>
+
+  <div class="d-flex">
+    {%for article in articles %}
+    <div class="card d-flex flex-column justify-content-center align-items-center" style="width:250px; margin:10px; ">
+      <div class="card-title" style='font-size:17px; margin:10pxs;'>
+        {{article.title}}
+      </div>
+      {% if article.image %}
+      <img src="{{article.image.url}}" style="width:200px; height:200px;" alt="">
+      {% else %}
+      <div class="d-flex justify-content-center align-items-center "
+        style="width:200px; height:200px; background-color:black; color:white;">
+        <P>없음</p>
+      </div>
+      {% endif %}
+      <div class="d-flex" style='font-size:8px; margin:10pxs; width:200px; height:120px; background-color:aquamarine;'>
+        {{ article.description}}
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+
+
+</div>
+
+<hr>
+
+<div class="card-container" style='margin-top:15px; border:0.5px solid gray; margin:10px;'>
+  <div class="d-flex justify-content-between align-items-center" style="margin:5px; margin-left:20px; margin-right:20px;">
+    <div class="title" style="margin:5px; font-size:1.5rem;">주제 없음</div>
+    <a href="#">더보기</a>
+  </div>
+
+  <div class="d-flex">
+    {%for article in articles %}
+    <div class="card d-flex flex-column justify-content-center align-items-center" style="width:250px; margin:10px; ">
+      <div class="card-title" style='font-size:17px; margin:10pxs;'>
+        {{article.title}}
+      </div>
+      {% if article.image %}
+      <img src="{{article.image.url}}" style="width:200px; height:200px;" alt="">
+      {% else %}
+      <div class="d-flex justify-content-center align-items-center "
+        style="width:200px; height:200px; background-color:black; color:white;">
+        <P>없음</p>
+      </div>
+      {% endif %}
+      <div class="d-flex" style='font-size:8px; margin:10pxs; width:200px; height:120px; background-color:aquamarine;'>
+        {{ article.description}}
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+
+
+</div>
+
+<hr>
