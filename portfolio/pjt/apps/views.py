@@ -108,4 +108,18 @@ def display_image(request):
 
     return render(request, 'apps/display_image.html', context)
 
+def carousel(request):
+
+
+    images = FileUpload.objects.all() 
+
+
+
+    context = {
+            'A': 'A',
+            'images' : images
+    }
+    
+    return render(request, 'apps/carousel.html', context)
+
 

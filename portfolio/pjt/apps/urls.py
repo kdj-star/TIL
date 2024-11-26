@@ -29,5 +29,6 @@ urlpatterns = [
     path('image_practice/', views.image_practice,name="image_practice"),
     path('fileupload/', views.fileUpload, name="fileupload"),
     path('display_image/', views.display_image, name="display_image"),
+    path('carousel/',views.carousel,name='carousel')
 
 ]

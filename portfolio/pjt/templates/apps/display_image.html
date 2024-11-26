@@ -1,11 +1,35 @@
 {% extends 'base.html' %}
 {% block content %}
-<h1>diplay image</h1>
+
 <div style="display: flex;">   
-    <div class="image_display" style="height: 220px; width: 1200px; margin:20px; overflow: auto;  white-space: nowrap;margin-left: auto; margin-right: auto;" >
+    <button onclick="Right()" >◀</button>
+    <div id="image_display" style="height: 220px; width: 1200px; margin:20px; overflow: auto;  white-space: nowrap;margin-left: auto; margin-right: auto;" >
         {% for i in images %}      
         <img src="{{ i.imgfile.url }}" alt="" style="height: 200px; margin: 5px">
         {% endfor %}
     </div>
+    <button onclick="Left()" >▶</button>
+
 </div>
+<script>
+
+    let pos = 0;
+
+    function Left(){
+        pos = pos+100;
+        //alert(pos);
+        $( '#image_display' ).scrollLeft( pos );
+    }
+    
+    function Right(){
+        pos = pos-100;
+        if(pos<0)
+            pos = 0;
+        //alert(pos);
+        $( '#image_display' ).scrollLeft( pos );
+    }
+    
+    
+    
+ </script> 
 {% endblock %}
