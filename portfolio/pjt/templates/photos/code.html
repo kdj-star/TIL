@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block content %}
+<p>{{ email }}</p>
+    <form action="" method="post" class="form-example">
+        <div class="form-example">
+          <label for="code">Enter code: </label>
+          <input type="text" name="code" id="code" required />
+        </div>
+        <div class="form-example">
+          <input id="submit" value="Subscribe!" onclick="check_code()"/>
+        </div>
+      </form>
+
+      <script>
+
+        function check_code(){
+            
+            code = document.getElementById('code').value;
+
+
+            if(code == {{ code }}  ){
+                
+                alert('ok');
+                window.location.href="{% url 'photos:index' %}";
+            }
+            else{
+                alert('not ok');
+            }
+                
+
+        }
+        
+
+        $('#submit').click(check_code);
+
+
+      </script>
+
+{% endblock %}

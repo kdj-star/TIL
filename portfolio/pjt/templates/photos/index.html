@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>hello</h1>
+<div class="border">
+
+    <div class="inner">
+        <div class="block" id="first-block" onclick="ChangeColor()"></div>
+        <a href="{% url 'photos:lotto' %}"><div class="block"></div></a>
+        <a href="{% url 'photos:practice' %}"><div class="block"></div></a>
+    </div>
+    <div class="inner">
+        <div class="block" onclick="goto_url()"></div>
+        <a href="{% url 'photos:email_authentication' %}"><div class="block"></div></a>
+        <a href="{% url 'photos:display_image' %}"><div class="block"></div></a>
+    </div>
+
+    <div class="inner">
+        <a href="{% url 'photos:PhotoUpload' %}"><div class="block"></div></a>
+        <div class="block"></div>
+        <div class="block" style="background-color: aqua;"></div>
+    </div>
+
+
+
+
+</div>
+
+
+
+{% endblock %}
