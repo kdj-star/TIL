@@ -18,7 +18,7 @@ def index(request):
             'images' : images
     }
 
-    return render(request, 'photos/display_image.html', context)
+    return render(request, 'photos/index.html', context)
 
 def second_index(request):
     images = photo.objects.all() 
@@ -141,5 +141,22 @@ def carousel(request):
     }
     
     return render(request, 'photos/carousel.html', context)
+
+
+
+def detail(request,pk):
+
+    _photo =photo.objects.get(id=pk)
+
+
+    context={
+
+        'photo':_photo,
+
+    }
+
+
+
+    return render(request,'photos/detail.html',context)
 
 

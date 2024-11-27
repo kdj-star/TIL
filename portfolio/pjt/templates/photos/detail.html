@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="container" style="margin-top: 100px; width: 800px;">
+        <div style="display: flex; justify-content: center; align-items: center;">
+            <p style ='font-size: 30px;'>{{photo.title}}</p>
+        </div>
+        <hr>
+        <div style="display: flex; justify-content: center; align-items: center;">
+            <img src="{{photo.imgfile.url}}" alt="">
+        </div>
+        <hr>
+        <div style="background-color: yellow; width: 700px; height: 300px; margin-left: 50px;">
+            <p style>{{photo.content}}</p>
+        </div>
+        
+    </div>   
+    
+{% endblock %}
