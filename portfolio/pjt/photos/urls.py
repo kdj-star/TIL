@@ -29,6 +29,7 @@ urlpatterns = [
     path('image_practice/', views.image_practice,name="image_practice"),
     path('PhotoUpload/', views.PhotoUpload, name="PhotoUpload"),
     path('display_image/', views.display_image, name="display_image"),
-    path('carousel/',views.carousel,name='carousel')
+    path('carousel/',views.carousel,name='carousel'),
+    
 
 ]

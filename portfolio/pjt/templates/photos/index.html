@@ -1,30 +1,98 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block content %}
 <h1>hello</h1>
+<div class="inner">
+    <div class="block" id="first-block" onclick="ChangeColor()"></div>
+    <a href="{% url 'photos:lotto' %}"><div class="block"></div></a>
+    <a href="{% url 'photos:practice' %}"><div class="block"></div></a>
+</div>
+<div class="inner">
+    <div class="block" onclick="goto_url()"></div>
+    <a href="{% url 'photos:email_authentication' %}"><div class="block"></div></a>
+    <a href="{% url 'photos:display_image' %}"><div class="block"></div></a>
+</div>
+
+<div class="inner">
+    <a href="{% url 'photos:PhotoUpload' %}"><div class="block"></div></a>
+    <div class="block"></div>
+    <div class="block" style="background-color: aqua;"></div>
+</div>
 <div class="border">
-
-    <div class="inner">
-        <div class="block" id="first-block" onclick="ChangeColor()"></div>
-        <a href="{% url 'photos:lotto' %}"><div class="block"></div></a>
-        <a href="{% url 'photos:practice' %}"><div class="block"></div></a>
+    <h1 style="margin-top:100px;">새로 업로드 된 사진</h1>
+<div style="display: flex; width: 1600px; margin: 0 auto; margin-top: 20px;">   
+    <button onclick="RightNew()" style="height: 50px; width: 50px; margin: 20px; margin-top: 120px;" >◀</button>
+    <div id="new-image-display" style="height: 250px; width: 1500px; margin-top: 30px;  overflow: auto;  white-space: nowrap; margin-left: auto; margin-right: auto;" >
+        {% for i in images %}      
+        <a href="#"><img src="{{ i.imgfile.url }}" alt="" style="height: 200px; margin: 5px"></a>
+        {% endfor %}
     </div>
-    <div class="inner">
-        <div class="block" onclick="goto_url()"></div>
-        <a href="{% url 'photos:email_authentication' %}"><div class="block"></div></a>
-        <a href="{% url 'photos:display_image' %}"><div class="block"></div></a>
-    </div>
+    <button onclick="LeftNew()" style="height: 50px; width: 50px; margin: 20px; margin-top: 120px;" >▶</button>
+</div>
 
-    <div class="inner">
-        <a href="{% url 'photos:PhotoUpload' %}"><div class="block"></div></a>
-        <div class="block"></div>
-        <div class="block" style="background-color: aqua;"></div>
+<h1 style="margin-top:100px;">인기 사진</h1>
+<div style="display: flex; width: 1600px; margin: 0 auto; margin-top: 20px;">   
+    <button onclick="RightHot()" style="height: 50px; width: 50px; margin: 20px; margin-top: 120px;" >◀</button>
+    <div id="hot-image-display" style="height: 250px; width: 1500px; margin-top: 30px;  overflow: auto;  white-space: nowrap; margin-left: auto; margin-right: auto;" >
+        {% for i in images %}      
+        <a href="#"><img src="{{ i.imgfile.url }}" alt="" style="height: 200px; margin: 5px"></a>
+        {% endfor %}
     </div>
+    <button onclick="LeftHot()" style="height: 50px; width: 50px; margin: 20px; margin-top: 120px;" >▶</button>
+</div>
+ 
 
+<style>
+    #new-image-display{
+        -ms-overflow-style: none;
+    }
+    #new-image-display::-webkit-scrollbar{
+    display:none;
+    }
+    #hot-image-display{
+        -ms-overflow-style: none;
+    }
+    #hot-image-display::-webkit-scrollbar{
+    display:none;
+    }
+</style>
+<script>
+
+    let Newpos = 0;
+
+    function LeftNew(){
+        Newpos = Newpos+100;
+        //alert(pos);
+        $( '#new-image-display' ).scrollLeft( Newpos );
+    }
+    
+    function RightNew(){
+        Newpos = Newpos-100;
+        if(Newpos<0)
+        Newpos = 0;
+        //alert(pos);
+        $( '#new-image-display' ).scrollLeft( Newpos );
+    }
+    
+    let Hotpos = 0;
+
+    function LeftHot(){
+        Hotpos = Hotpos+100;
+        //alert(pos);
+        $( '#hot-image-display' ).scrollLeft( Hotpos );
+    }
+    
+    function RightHot(){
+        Hotpos = Hotpos-100;
+        if(Hotpos<0)
+            Hotpos = 0;
+        //alert(pos);
+        $( '#hot-image-display' ).scrollLeft( Hotpos );
+    }
+    
+ </script> 
 
 
 
 </div>
-
-
-
 {% endblock %}

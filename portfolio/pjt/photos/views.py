@@ -9,9 +9,16 @@ import random
 
 
 def index(request):
-    
+    images = photo.objects.all() 
 
-    return render(request,'photos/index.html')
+
+
+    context = {
+            'A': 'A',
+            'images' : images
+    }
+
+    return render(request, 'photos/display_image.html', context)
 
 def lotto(request):
     
@@ -77,19 +84,26 @@ from .forms import PhotoUploadForm
 from .models import photo
 
 def PhotoUpload(request):
-    if request.method == 'POST':
-        title = request.POST['title']
-        content = request.POST['content']
-        img = request.FILES["imgfile"]
-        photos = photo.objects.create(title=title,content=content,imgfile=img)
-        photos.save()
-        return redirect('photos:index')
+    
+    if request.user.is_authenticated:
+        
+        if request.method == 'POST':
+            title = request.POST['title']
+            content = request.POST['content']
+            img = request.FILES["imgfile"]
+            photos = photo.objects.create(title=title,content=content,imgfile=img)
+            photos.save()
+            return redirect('photos:index')
+        else:
+            Form = PhotoUploadForm()
+            context = {
+                'Form': Form ,
+            }
+            return render(request, 'photos/PhotoUpload.html', context)
     else:
-        Form = PhotoUploadForm()
-        context = {
-            'Form': Form ,
-        }
-        return render(request, 'photos/PhotoUpload.html', context)
+        return redirect('accounts:login')
+
+
     
 def display_image(request):
 

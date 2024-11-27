@@ -2,7 +2,7 @@
 
 {% load static %}
 
-{% load django_bootstrap5 %}
+{% load bootstrap4 %}
 
 {% block content %}
 
@@ -18,14 +18,11 @@
                 {% bootstrap_form form %}
                 <input class='btn btn-outline-primary' type="submit" value="로그인">
             </form>
-            <a style="margin-top:2rem;"  href ="{% url 'accounts:find_password' 1 %}" > 비밀번호를 잊으셨나요? </a>
+            <a style="margin-top:2rem;"  href ="#" > 비밀번호를 잊으셨나요? </a>
         </div>
-        <img src="{%static 'images/1.png' %}" style='width:200px; height:200px; border-radius:20px;'>
+        <img src="https://dummyimage.com/200X200/000/fff" style='width:200px; height:200px; border-radius:20px;'>
         {% comment %} <div class="video_container" style='width:50px; height:50px;'>
-        <video muted autoplay loop>
-        <source src="{% static 'videos/1.mp4' %}" type="video/mp4">
-        <strong>Your browser does not support the video tag.</strong>
-        </video>
+        
         </div> {% endcomment %}
 
 
