@@ -24,7 +24,7 @@
                 <p> {{ User.last_name }}{{ User.first_name }} </p>
                 <p> {{ User.email }} </p>
                 {% if user == User %}
-                    <a href="{% url 'accounts:edit_profile' user.username %}">프로필 편집</a>
+                    <a href="{% url 'accounts:edit_profile' %}">프로필 편집</a>
                 {% endif %}
             </div> 
     
