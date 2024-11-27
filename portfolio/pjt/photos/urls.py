@@ -23,6 +23,7 @@ app_name = "photos"
 
 urlpatterns = [
     path('', views.index,name="index"),
+    path('second_index', views.second_index,name="second_index"),
     path('lotto/', views.lotto,name="lotto"),
     path('practice/', views.practice,name="practice"),
     path('email_authentication',views.email_authentication,name="email_authentication"),
@@ -30,6 +31,6 @@ urlpatterns = [
     path('PhotoUpload/', views.PhotoUpload, name="PhotoUpload"),
     path('display_image/', views.display_image, name="display_image"),
     path('carousel/',views.carousel,name='carousel'),
-    
+
 
 ]

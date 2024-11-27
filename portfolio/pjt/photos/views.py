@@ -20,6 +20,18 @@ def index(request):
 
     return render(request, 'photos/display_image.html', context)
 
+def second_index(request):
+    images = photo.objects.all() 
+
+
+
+    context = {
+            'A': 'A',
+            'images' : images
+    }
+
+    return render(request, 'photos/display_image.html', context)
+
 def lotto(request):
     
 
