@@ -16,15 +16,16 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from django.urls import include
-from django.conf.urls.static import static
-from django.conf import settings
+from . import views
+
+app_name = "apps"
 
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('accounts/', include('accounts.urls')),
-    path('', include('photos.urls')),
-    path('apps/', include('apps.urls')),
-    
-]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    path('', views.index,name="index"),
+    path('lotto/', views.lotto,name="lotto"),
+    path('practice/', views.practice,name="practice"),
+    path('email_authentication/',views.email_authentication,name="email_authentication"),
+    path('image_practice/', views.image_practice,name="image_practice"),
+    path('carousel/',views.carousel,name='carousel'),
+]
