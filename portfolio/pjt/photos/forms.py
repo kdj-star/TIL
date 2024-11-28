@@ -35,3 +35,14 @@ class CommentForm(ModelForm):
         model = comment
         # fields = '__all__'
         exclude = ('photo', 'user',)
+
+        widgets = {
+            'content': TextInput(attrs={
+                'class': "form-control",
+                'style': 'width: 780px; height:200px; margin-bottom:10px;',
+                'placeholder': 'content'
+
+                }),
+            
+
+        }
