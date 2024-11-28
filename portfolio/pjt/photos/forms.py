@@ -1,6 +1,6 @@
 # fileupload/forms.py
 from django.forms import ModelForm
-from .models import photo
+from .models import photo,comment
 from django.forms import ModelForm, TextInput, EmailInput, NumberInput,FileInput
 
 class PhotoUploadForm(ModelForm):
@@ -28,3 +28,10 @@ class PhotoUploadForm(ModelForm):
             }),
 
         }
+
+class CommentForm(ModelForm):
+
+    class Meta:
+        model = comment
+        # fields = '__all__'
+        exclude = ('photo', 'user',)

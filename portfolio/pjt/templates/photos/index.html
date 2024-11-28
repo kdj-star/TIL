@@ -1,8 +1,12 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
+<div class="button-container" style="margin-top: 70px;">
+    <button type="button" class="btn btn-outline-primary" style="cursor:pointer; margin-left: 1700px; width:80px; height:40px; " OnClick="location.href='/photos/PhotoUpload'">업로드</button>
+    <button type="button" class="btn btn-outline-danger" style="cursor:pointer; margin-left: 10px; width:80px; height:40px; " OnClick="location.href='/photos/PhotoUpload'">Danger</button>    
+</div>
 <div class="border">
-<h1 style="margin-top:50px;">새로 업로드 된 사진</h1>
+<h1 style="margin-top:50px;">새로 업로드 된 사진</h1> 
 <div style="display: flex; width: 1600px; margin: 0 auto; margin-top: 20px;">   
     <button onclick="RightNew()" style="height: 50px; width: 50px; margin: 20px; margin-top: 120px;" >◀</button>
     <div id="new-image-display" style="height: 250px; width: 1500px; margin-top: 30px;  overflow: auto;  white-space: nowrap; margin-left: auto; margin-right: auto;" >
