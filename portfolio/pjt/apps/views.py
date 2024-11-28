@@ -50,7 +50,7 @@ def email_authentication(request):
 
 
         context = {
-
+            
             'email': email ,
             'code' : code,
 

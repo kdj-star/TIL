@@ -1,5 +1,5 @@
 from django.shortcuts import render ,redirect
-
+from django.views.decorators.http import require_GET, require_POST
 from django.views.decorators.csrf import csrf_exempt
 from .forms import PhotoUploadForm,CommentForm
 from .models import photo,comment
@@ -10,13 +10,15 @@ import random
 
 
 def index(request):
-    images = photo.objects.all() 
+    images = photo.objects.all()
+    ordered_images = photo.objects.all().order_by('-like_users') 
 
 
 
     context = {
             'A': 'A',
-            'images' : images
+            'images' : images,
+            'ordered_images' : ordered_images
     }
 
     return render(request, 'photos/index.html', context)
@@ -80,15 +82,17 @@ def display_image(request):
 def detail(request,pk):
 
     _photo =photo.objects.get(id=pk)
-
+    
     comments = comment.objects.filter(photo=_photo)
     comment_form = CommentForm()
+    likes =_photo.like_users.all()
             
     context={
         
         'photo':_photo,
         'comment_form':comment_form,
         'comments' : comments,
+        'likes':likes,
 
 
     }
@@ -118,4 +122,15 @@ def comments_delete(request, photo_pk, comment_pk):
             _comment.delete()
     return redirect('photos:detail', photo_pk)
 
+@csrf_exempt
+@require_POST
+def likes(request, photo_pk):
+    if request.user.is_authenticated:
+        _photo = photo.objects.get(id=photo_pk)
 
+        if _photo.like_users.filter(pk=request.user.pk).exists():
+            _photo.like_users.remove(request.user)
+        else:
+            _photo.like_users.add(request.user)
+        return redirect('photos:index')
+    return redirect('accounts:login')

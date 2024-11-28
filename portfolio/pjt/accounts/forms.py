@@ -8,7 +8,7 @@ class UserForm(UserCreationForm):
 
     class Meta:
         model = User
-        fields = ["username", "password1", "password2", "email", 'first_name', 'last_name',"profile_image"]
+        fields = ["username", "password1", "password2", "email", 'first_name', 'last_name']
         
         labels = {
         "username" : "아이디", 
