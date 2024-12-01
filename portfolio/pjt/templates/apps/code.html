@@ -1,17 +1,23 @@
 {% extends 'base.html' %}
 {% block content %}
-  <div class="container" style="margin-left: 800px; margin-top: 100px;">
-    <p>{{ code }}</p>
-    <p>{{ email }}</p>
-    <form action="" method="post" class="form-example">
-      <div class="form-example">
-        <label for="code">Enter code: </label>
-        <input type="text" name="code" id="code" required />
+<div class="border" style="display: flex; justify-content: center; align-items: center;">
+
+  <div class="container">
+    <h1 style = 'margin-bottom: 50px;'>
+      {{ email }}
+    </h1>
+    <form action="" method="post" class="form-example" style="margin-left: 400px;">
+      <div style="display: flex;">
+        <div class="form-example">
+          <label for="code">Enter code: </label>
+          <input type="text" name="code" id="code" required />
+        </div>
+        <button type="button" class="btn btn-outline-primary" onclick="check_code()" >확인</button>
       </div>
-      <button type="button" class="btn btn-outline-primary" onclick="check_code()" >확인</button>
       
     </form>
   </div>
+</div>
 
       <script>
 

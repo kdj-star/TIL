@@ -5,18 +5,18 @@
 
     <div style = 'display:flex;'>
         <a href="{% url 'apps:lotto' %}">
-            <div style="background-color: black; width: 300px; height: 300px; margin: 20px; border-radius: 20px;">
-                
+            <div style="background-color: black; border-style:solid; border-color:black; width: 300px; height: 300px; margin: 20px; border-radius: 20px; overflow: hidden;">
+                <img src="{% static 'img/lotto.jpg'  %}" alt="" style="width:300px; height: 300px;">
             </div>
         </a>
         <a href="{% url 'apps:email_authentication' %}">
-            <div style="background-color: black; width: 300px; height: 300px; margin: 20px; border-radius: 20px;">
-                
+            <div style="background-color: black; border-style:solid; border-color:black; width: 300px; height: 300px; margin: 20px; border-radius: 20px; overflow: hidden;">
+                <img src="{% static 'img/mail.png'  %}" alt="" style="width:300px; height: 300px;">
             </div>
         </a>
         <a href="{% url 'apps:count_length' %}">
-            <div style="background-color: black; width: 300px; height: 300px; margin: 20px; border-radius: 20px;">
-                
+            <div style="background-color: black; border-style:solid; border-color:black; width: 300px; height: 300px; margin: 20px; border-radius: 20px; overflow: hidden;">
+                <img src="{% static 'img/character_counter.png'  %}" alt="" style="width:300px; height: 300px;">
             </div>
         </a>
     </div>

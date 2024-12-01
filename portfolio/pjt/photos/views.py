@@ -18,7 +18,7 @@ def index(request):
     context = {
             'A': 'A',
             'images' : images,
-            'ordered_images' : ordered_images
+            'ordered_images' : ordered_images,
     }
 
     return render(request, 'photos/index.html', context)
