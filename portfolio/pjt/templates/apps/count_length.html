@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block content %}
+
+  <div class="container">
+    <h1 style="margin-top:100px;">자기소개서 글자수 세기</h1>
+    <textarea name="" style="width:1100px; height:800px ;" id="input-sentence" onkeyup="A()" ></textarea>
+    <div style="display: flex;  margin-top: 10px; "><p style="font-size: 30px; margin-right: 10px;">공백 포함 :<p id="count-length" style="font-size: 30px;" >0</p><p style="font-size: 30px;">글자</p></div>
+    <div style="display: flex;  margin-top: 10px; "><p style="font-size: 30px; margin-right: 10px;">공백 제외 : </p><p id="count-replaced" style="font-size: 30px;" >0</p><p style="font-size: 30px;">글자</p></div>
+  </div>
+  <script>
+    function A(){
+        input = document.getElementById('input-sentence').value
+        replaced_blank = input.replaceAll(' ','')
+        count_replaced = document.getElementById('count-replaced')
+        count = document.getElementById('count-length')
+        count.innerText = input.length
+        count_replaced.innerText = replaced_blank.length
+
+
+    }
+    
+
+
+
+  </script>
+{% endblock %}

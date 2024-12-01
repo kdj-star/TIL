@@ -8,6 +8,13 @@ def index(request):
 
     return render(request,'apps/index.html')
 
+def count_length(request):
+
+
+
+    return render(request,'apps/count_length.html')
+
+
 def lotto(request):
     
 

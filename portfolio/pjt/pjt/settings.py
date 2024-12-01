@@ -152,3 +152,9 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'rkaehdwo@gmail.com'
 EMAIL_HOST_PASSWORD = 'iddrarnaznqeuipz' # 단, 공백을 제외한 16글자.
+
+#시간 지나면 자동 종료
+SESSION_COOKIE_AGE = 1200    # 비동작 시간 세팅 (1200 = 20분)
+SESSION_SAVE_EVERY_REQUEST = True # 기본값 = False
+
+SESSION_EXPIRE_AT_BROWSER_CLOSE = True # 탭 닫기가 아닌 `브라우저` 종료

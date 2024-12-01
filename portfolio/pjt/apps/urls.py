@@ -23,6 +23,7 @@ app_name = "apps"
 
 urlpatterns = [
     path('', views.index,name="index"),
+    path('count_length/',views.count_length,name='count_length'),
     path('lotto/', views.lotto,name="lotto"),
     path('practice/', views.practice,name="practice"),
     path('email_authentication/',views.email_authentication,name="email_authentication"),
