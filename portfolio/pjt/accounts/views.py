@@ -37,7 +37,7 @@ def login(request):
   
   if request.user.is_authenticated:
     
-    return redirect('accounts:index')
+    return redirect('photos:index')
 
   else:
 
@@ -45,7 +45,7 @@ def login(request):
         form = AuthenticationForm(request, data=request.POST)
         if form.is_valid():
             auth_login(request, form.get_user())
-            return redirect(request.GET.get('next') or 'accounts:index')
+            return redirect(request.GET.get('next') or 'photos:index')
     else:
         form = AuthenticationForm()
     context = {
@@ -61,7 +61,7 @@ def logout(request):
 def signup(request):
   
     if  request.user.is_authenticated:
-       return redirect('accounts:index')
+       return redirect('photos:index')
     else:
         if request.method == 'POST':
             
@@ -127,7 +127,7 @@ def edit_profile(request):
                 print('error')
 
 
-              return redirect('accounts:index')
+              return redirect('photos:index')
       else:
           form = CustomUserChangeForm(instance=request.user)
       
@@ -154,7 +154,7 @@ def change_password(request):
                 if new_password == password_confirm:
                     user.set_password(new_password)
                     user.save()
-                    return redirect("accounts:index")
+                    return redirect("photos:index")
                 else:
                     context.update({'error':"새로운 비밀번호를 다시 확인해주세요."})
         else:
@@ -162,7 +162,7 @@ def change_password(request):
 
         return render(request, "accounts/change_password.html",context)
     else:
-        return redirect('accounts:index')
+        return redirect('photos:index')
     
 
 def password(request):
