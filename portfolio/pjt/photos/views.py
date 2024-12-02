@@ -150,10 +150,11 @@ def PhotoUpdate(request,photo_pk):
             _photo.save()
             return redirect('photos:index')
         else:
-            Form = PhotoChangeForm()
+            Form = PhotoChangeForm( instance = _photo)
+            
             context = {
                 'Form': Form ,
-                'photo':photo.objects.get(id=photo_pk),
+                'photo': _photo,
             }
             return render(request, 'photos/PhotoUpdate.html', context)
     else:

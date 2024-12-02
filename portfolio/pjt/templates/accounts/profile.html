@@ -13,10 +13,11 @@
         <div class="d-flex align-items-center" style="margin:50px;">
             <div style="width:300; height:300px; padding:30px; margin:10px;">
                 {% if User.profile_image  %}
-                    <img src="{{User.profile_image.url}}" class="card-img-top"  style="width:auto; height:100%; border-radius: 50% ;" alt="" >
+                <div style="width: 200px; height:200px; overflow: hidden;" >
+                    <img src="{{User.profile_image.url}}" class="card-img-top"  style="width:100%; height:100%; object-fit: cover;" alt="" >
+                </div>
                 {% else %}
-                    <p>없다</p>
-                    {% comment %} <img src="{% static 'images/blank_image.jpg' %}" class="card-img-top" style="width:auto; height:100%; border-radius: 50% ;" alt=""> {% endcomment %}
+                    <img src="https://dummyimage.com/200x200/000/fff" class="card-img-top" style="width:100%; height:100%;" alt="">
                 {% endif %}
             </div>
     
