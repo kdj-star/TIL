@@ -1,7 +1,7 @@
 from django.shortcuts import render ,redirect
 from django.views.decorators.http import require_GET, require_POST
 from django.views.decorators.csrf import csrf_exempt
-from .forms import PhotoUploadForm,CommentForm
+from .forms import PhotoUploadForm,CommentForm,PhotoChangeForm
 from .models import photo,comment
 
 # Create your views here.
@@ -48,7 +48,8 @@ def PhotoUpload(request):
             title = request.POST['title']
             content = request.POST['content']
             img = request.FILES["imgfile"]
-            photos = photo.objects.create(title=title,content=content,imgfile=img)
+
+            photos = photo.objects.create(title=title,content=content,imgfile=img,user=request.user)
             photos.save()
             return redirect('photos:index')
         else:
@@ -134,3 +135,26 @@ def likes(request, photo_pk):
             _photo.like_users.add(request.user)
         return redirect('photos:index')
     return redirect('accounts:login')
+
+
+def PhotoUpdate(request,photo_pk):
+    
+    if request.user:
+        
+        _photo = photo.objects.get(id=photo_pk)
+
+        if request.method == 'POST':
+            _photo.title = request.POST['title']
+            _photo.content = request.POST['content']
+            _photo.imgfile = request.FILES["imgfile"]
+            _photo.save()
+            return redirect('photos:index')
+        else:
+            Form = PhotoChangeForm()
+            context = {
+                'Form': Form ,
+                'photo':photo.objects.get(id=photo_pk),
+            }
+            return render(request, 'photos/PhotoUpdate.html', context)
+    else:
+        return redirect('accounts:login')

@@ -25,6 +25,7 @@ urlpatterns = [
     path('', views.index,name="index"),
     path('second_index', views.second_index,name="second_index"),
     path('PhotoUpload/', views.PhotoUpload, name="PhotoUpload"),
+    path('PhotoUpdate/<int:photo_pk>', views.PhotoUpdate, name="PhotoUpdate"),
     path('display_image/', views.display_image, name="display_image"),
     path('detail/<int:pk>', views.detail ,name='detail'),
     path('<int:pk>/comments/', views.comments_create, name='comments_create'),

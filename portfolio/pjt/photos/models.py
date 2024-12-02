@@ -6,6 +6,7 @@ class photo(models.Model):
     title = models.TextField(max_length=40, null=True)
     imgfile = models.ImageField(null=True, upload_to="", blank=True)
     content = models.TextField()
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     like_users = models.ManyToManyField(settings.AUTH_USER_MODEL, related_name='like_photos')
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
