@@ -55,13 +55,13 @@ class PhotoChangeForm(ModelForm):
         widgets = {
             'title': TextInput(attrs={
                 'class': "form-control",
-                'style': 'width: 300px;',
+                'style': 'width: 300px; height:100px;',
                 'placeholder': 'title'
 
                 }),
             'imgfile': FileInput(attrs={
                 'class': "form-control",
-                'style': 'width: 300px;',
+                'style': 'width: 300px; height:100px;',
                 'id':'image-file',
                  'onchange': "readURL(this);"
                 }),

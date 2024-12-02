@@ -16,8 +16,16 @@
 
             <form method="POST" action="{% url 'photos:PhotoUpdate' photo.id %}" enctype="multipart/form-data">
                 {% csrf_token %}
-                {% bootstrap_form Form %}
-                <input type="submit" class="btn btn-primary col-12" value="제출" style="width: 300px;">
+                <div class="border">
+                    <label for="imgfile" style ='text-align: left;'>Image File</label>
+                    <input type="FILE" name = imgfile onchange="readURL(this)" style='margin-bottom:5px;'>
+                    <label for="title" style ='text-align: left;' >Title</label>
+                    <input type="text" name ='title' value = {{photo.title}} style ='width: 300px;'>
+                    <label for="content" style ='text-align: left;' style='margin-bottom:5px;'>Content</label>
+                    <input type="text" name ='content'value = {{photo.content}} style='margin-bottom:5px; width: 300px; height: 100px;'>
+                    <input type="submit" class="btn btn-primary col-12" value="제출" style="width: 300px;">
+                </div>
+                
             </form>
         </div>
     </div>

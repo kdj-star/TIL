@@ -146,8 +146,14 @@ def PhotoUpdate(request,photo_pk):
         if request.method == 'POST':
             _photo.title = request.POST['title']
             _photo.content = request.POST['content']
-            _photo.imgfile = request.FILES["imgfile"]
+            
+            try:
+                _photo.imgfile = request.FILES["imgfile"]
+            except:
+                pass
+            
             _photo.save()
+            
             return redirect('photos:index')
         else:
             Form = PhotoChangeForm( instance = _photo)
