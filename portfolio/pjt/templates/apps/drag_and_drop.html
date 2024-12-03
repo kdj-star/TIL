@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block style %}
+    <link href="{% static 'css/common.css' %}" rel="stylesheet"/>
+    <script src="{% static 'js/event_handler.js' %}"></script>
+{% endblock %}
+{% block content %}
+ 
+
+    <div class="ball green s200"></div>
+    <div class="ball blue s100"></div>
+    <div class="ball pink s50"></div>
+    <script src="{% static 'js/common.js' %}"></script>
+
+
+{% endblock %}

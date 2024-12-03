@@ -91,3 +91,9 @@ def send_test_email():
         fail_silently=False,
     )
 
+def drag_and_drop(request):
+
+
+
+
+    return render(request, 'apps/drag_and_drop.html')

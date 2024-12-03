@@ -61,7 +61,7 @@ class PhotoChangeForm(ModelForm):
                 }),
             'imgfile': FileInput(attrs={
                 'class': "form-control",
-                'style': 'width: 300px; height:100px;',
+                'style': 'width: 300px; ',
                 'id':'image-file',
                  'onchange': "readURL(this);"
                 }),
