@@ -141,3 +141,12 @@ def update_note(request,pk):
        
     else:
         return redirect('accounts:login')
+    
+def delete_note(request,pk):
+
+    _note = note.objects.get(id=pk)
+
+    _note.delete()
+            
+    return redirect('apps:sticky_note')
+   
