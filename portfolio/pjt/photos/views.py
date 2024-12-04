@@ -136,7 +136,7 @@ def likes(request, photo_pk):
         return redirect('photos:index')
     return redirect('accounts:login')
 
-
+@csrf_exempt
 def PhotoUpdate(request,photo_pk):
     
     if request.user:

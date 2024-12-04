@@ -29,5 +29,9 @@ urlpatterns = [
     path('email_authentication/',views.email_authentication,name="email_authentication"),
     path('image_practice/', views.image_practice,name="image_practice"),
     path('carousel/',views.carousel,name='carousel'),
-    path('drag_and_drop',views.drag_and_drop,name='drag_and_drop')
+    path('drag_and_drop',views.drag_and_drop,name='drag_and_drop'),
+    path('sticky_note',views.sticky_note,name='sticky_note'),
+    path('create_note',views.create_note,name='create_note'),
+    path('update_note/<int:pk>',views.update_note,name='update_note'),
+
 ]

@@ -1,5 +1,3 @@
-// js/common.js
- 
 const balls = document.querySelectorAll(".ball");
  
 balls.forEach(function(ball, idx){      

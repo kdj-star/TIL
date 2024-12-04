@@ -1,4 +1,3 @@
-
 // js/event_handler.js
  
 // 공 선택 이벤트 핸들러

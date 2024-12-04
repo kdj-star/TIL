@@ -1,6 +1,7 @@
 from django.shortcuts import render,redirect
 from django.core.mail import send_mail
 from django.views.decorators.csrf import csrf_exempt
+from .models import note
 from photos.models import photo
 import random
 
@@ -97,3 +98,44 @@ def drag_and_drop(request):
 
 
     return render(request, 'apps/drag_and_drop.html')
+
+def sticky_note(request):
+
+    notes = note.objects.filter(user=request.user)
+    print(len(notes))
+    context ={
+
+        'notes':notes,
+
+    }
+    
+
+    return render(request, 'apps/sticky_note.html',context)
+
+
+def create_note(request):
+    
+    if request.user.is_authenticated:
+            
+            _note = note.objects.create(user = request.user,content="")
+            
+            return redirect('apps:sticky_note')
+    else:
+        return redirect('accounts:login')
+    
+def update_note(request,pk):
+
+    _note = note.objects.get(id=pk)
+
+    if request.user:
+        
+        if request.method == 'POST':
+
+            _note.content = request.POST['note']
+            print('note : ', request.POST['note'])
+            _note.save()
+            
+            return redirect('apps:sticky_note')
+       
+    else:
+        return redirect('accounts:login')
