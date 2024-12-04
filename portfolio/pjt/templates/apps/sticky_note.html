@@ -17,8 +17,8 @@
             {% if user.is_authenticated %}  
             {% for note in notes %}
             <form method="POST" action="{% url 'apps:update_note' note.id %}" enctype="multipart/form-data">{% csrf_token %}
-                <div  style="background-color: yellow; width: 300px; margin:10px;"><!--포스트잇 부분-->
-                    <textarea class="ball" name="note" style="width: 180px; height:180px; margin:20px; background-color: yellow; border-color: yellow;" onchange="this.form.submit()">{{ note.content }}</textarea>
+                <div style="background-color: yellow; width: 240px; margin:10px;"><!--포스트잇 부분-->
+                    <textarea  name="note" style="width: 200px; height:200px; margin:20px; background-color: yellow; border-color: yellow;" onchange="this.form.submit()">{{ note.content }}</textarea>
                 </div>
             </form>
             {% endfor %} 
