@@ -100,17 +100,19 @@ def drag_and_drop(request):
     return render(request, 'apps/drag_and_drop.html')
 
 def sticky_note(request):
+    if request.user.is_authenticated:
+        notes = note.objects.filter(user=request.user)
+        print(len(notes))
+        context ={
 
-    notes = note.objects.filter(user=request.user)
-    print(len(notes))
-    context ={
+            'notes':notes,
 
-        'notes':notes,
+        }
+        
 
-    }
-    
-
-    return render(request, 'apps/sticky_note.html',context)
+        return render(request, 'apps/sticky_note.html',context)
+    else:
+        return redirect ('accounts:login')
 
 
 def create_note(request):
