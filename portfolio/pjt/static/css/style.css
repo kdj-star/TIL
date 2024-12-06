@@ -45,6 +45,11 @@ body{
     text-align: center;
 
 }
+table, th, td {
+  border: 1px solid black;
+}
+
+
 
 .border {                                                                                           
     display: flex;

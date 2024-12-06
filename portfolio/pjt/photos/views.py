@@ -10,7 +10,7 @@ import random
 
 
 def index(request):
-    images = photo.objects.all()
+    images = photo.objects.all(-id)
     ordered_images = photo.objects.all().order_by('-like_users') 
 
 

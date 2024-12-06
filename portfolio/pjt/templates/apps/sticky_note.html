@@ -17,13 +17,20 @@
             <div style = 'display: flex; flex-wrap: wrap; width: 1200px; background-color: pink;'>
                 {% if user.is_authenticated %}  
                 {% for note in notes %}
-                <div style = 'margin: 10px;'>
+                <div  style = 'margin: 10px; '>
                 <form method="POST" action="{% url 'apps:update_note' note.id %}" enctype="multipart/form-data">{% csrf_token %}
                     
                         <div style="width: 240px; height: 40px; background-color:brown ; padding: 5px;" >
-                            <a  href="{% url 'apps:delete_note' note.id %}">
-                                <img src="https://cdn-icons-png.flaticon.com/512/1/1766.png" style ="width:30px; height:30px; margin-left: 200px;" alt="">
-                            </a>
+                            <div style="display:flex;" >
+                                <div style = 'width:200px;'>
+                                    
+                                </div>
+                                <div style=" width: 30px;">
+                                    <a  href="{% url 'apps:delete_note' note.id %}">
+                                        <img src="https://cdn-icons-png.flaticon.com/512/1/1766.png" style ="width:30px; height:30px;" alt="">
+                                    </a>
+                                </div>
+                            </div>
                         </div>
                         <div  style="background-color: yellow; width: 240px; "><!--포스트잇 부분-->
                             <textarea  name="note" style="width: 200px; height:200px; margin:20px; background-color: yellow; border-color: yellow;" onchange="this.form.submit()">{{ note.content }}</textarea>
