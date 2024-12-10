@@ -22,8 +22,6 @@ def lotto(request):
     return render(request,'apps/lotto.html')
 
 def practice(request):
-    
-    send_test_email()
 
     return render(request,'apps/practice.html')
 

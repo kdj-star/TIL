@@ -4,6 +4,12 @@
 <h1>자바스크립트 연습</h1>
 
 <div class="border" style="justify-content: center; align-items: center;">
+
+    <button onclick = "calc()" > 나이 계산하기 </button>
+    <div id="result" style = 'margin:10px;'></div>
+
+
+
     <img id="practice-image" src="https://dummyimage.com/400x400/000/fff" alt="">
     <button  onclick="practice_image()"style='width:200px; height:50; border-radius:5px; margin:10px;'>btn</button>
     <p id = "practice-ptag" >practice ptag </p>
@@ -18,6 +24,16 @@
 
 
 <script>
+
+    function calc(){
+
+        let currentYear = 2024;
+
+        let age = currentYear - prompt('출생년도 입력') + 1
+
+        document.getElementById('result').innerHTML = "나이는 "+ age +'세'; 
+    }
+
 
     const button1 = document.querySelector('#button1');
     const button2 = document.querySelector('#button2');
