@@ -59,7 +59,7 @@
 
         let container = document.getElementById('container');
         conRect= container.getBoundingClientRect();
-        container.addEventListener("mousedown", (e) => {
+        container.addEventListener("mousedown", (event) => {
             //container.style.backgroundColor='black'
             container.classList.add('drag')
             container.style.backgroundColor='black';
@@ -82,6 +82,9 @@
   
 
         });
+        container.addEventListener("mousemove", (e) => {
+
+        })
         container.addEventListener("mouseup", (e) => {
             container.classList.remove('drag')
             container.style.backgroundColor='pink'
