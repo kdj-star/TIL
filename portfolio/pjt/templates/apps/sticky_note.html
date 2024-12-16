@@ -17,7 +17,7 @@
     </style>
 
 {% endblock %}
-{% block content %}
+{% block content %}+
     <div class="container" style="margin-top: 100px;">
         <div class = 'display:flex;'>
             <button style = 'margin: 10px;' onclick="location.href='/apps/create_note'" >
@@ -27,11 +27,11 @@
             <div id="container" draggable="true" style = 'position: absolute; display: flex; flex-wrap: wrap; width: 1200px; background-color: pink;'>
                 {% if user.is_authenticated %}  
                 {% for note in notes %}
-                <div class="note"  style = 'margin: 10px; ' draggable="true">
+                <div class="note"  style = 'margin: 10px; '>
                 <form method="POST" action="{% url 'apps:update_note' note.id %}" enctype="multipart/form-data">{% csrf_token %}
                     
                         <div style="width: 240px; height: 40px; background-color:brown ; padding: 5px;" >
-                            <div style="display:flex;" >
+                            <div style="display:flex;" > 
                                 <div style = 'width:200px;'>
                                     
                                 </div>
@@ -57,42 +57,6 @@
     <script src="{% static 'js/common.js' %}"></script>
     <script>
 
-        let container = document.getElementById('container');
-        conRect= container.getBoundingClientRect();
-        container.addEventListener("mousedown", (event) => {
-            //container.style.backgroundColor='black'
-            container.classList.add('drag')
-            container.style.backgroundColor='black';
-
-            const mouseX = event.clientX;
-            const mouseY = event.clientY;
-            
-            // 선택한 공 안에 있는 마우스 커서의 XY좌표
-            const gapX = container.getAttribute("gap-x");
-            const gapY = container.getAttribute("gap-y");
-            
-            // 마우스 커서의 위치에 따른 공의 XY좌표
-            const boxX = mouseX - gapX;
-            const boxY = mouseY - gapY;
-            
-            // 공의 위치를 변경
-          
-            container.style.left = boxX+"px";
-            container.style.top = boxY+"px";
-  
-
-        });
-        container.addEventListener("mousemove", (e) => {
-
-        })
-        container.addEventListener("mouseup", (e) => {
-            container.classList.remove('drag')
-            container.style.backgroundColor='pink'
-            
-            container.removeAttribute("gap-x")
-            container.removeAttribute("gap-y")
-            
-        });
 
     </script>
 
