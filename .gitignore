@@ -72,6 +72,10 @@ wheels/
 pip-log.txt
 pip-delete-this-directory.txt
 
+#personal_info
+data.txt
+key.txt
+
 # Unit test / coverage reports
 htmlcov/
 .tox/
