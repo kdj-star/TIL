@@ -1,1 +1,4 @@
-jupyter nbconvert --to script 파일명.ipynb
+cd desktop/github/pybithumb_project
+jupyter nbconvert --to script _pybithumb.ipynb
+
+pyinstaller -w -F _pybithumb.py   

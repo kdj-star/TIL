@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[ ]:
+# In[1]:
 
 
 import time
@@ -89,6 +89,7 @@ class WindowClass(QMainWindow, form_class):
 
     def setTableWidgetData(self):
           ticker = self.comboBox.currentText()
+          tmp = pybithumb.get_ohlcv()
           price_ticker = round(pybithumb.get_current_price(ticker),4)
           balance = bithumb.get_balance(ticker)
           total = round(balance[0] * pybithumb.get_current_price(ticker),1)
@@ -98,8 +99,6 @@ class WindowClass(QMainWindow, form_class):
           self.lineEdit_3.setText(str(rsi('floki','30m')))
           self.lineEdit_4.setText(str(rsi('floki','1h')))
           self.lineEdit_5.setText(str(rsi('floki','4h')))
-          
-        
         
 
 
