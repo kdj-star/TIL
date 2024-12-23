@@ -95,10 +95,10 @@ class WindowClass(QMainWindow, form_class):
           total = round(balance[0] * pybithumb.get_current_price(ticker),1)
           self.lineEdit_6.setText(str(price_ticker))
           self.lineEdit_7.setText(str(total))
-          self.lineEdit_2.setText(str(rsi('floki','10m')))
-          self.lineEdit_3.setText(str(rsi('floki','30m')))
-          self.lineEdit_4.setText(str(rsi('floki','1h')))
-          self.lineEdit_5.setText(str(rsi('floki','4h')))
+          self.lineEdit_2.setText(str(rsi(ticker,'10m')))
+          self.lineEdit_3.setText(str(rsi(ticker,'30m')))
+          self.lineEdit_4.setText(str(rsi(ticker,'1h')))
+          self.lineEdit_5.setText(str(rsi(ticker,'4h')))
         
 
 

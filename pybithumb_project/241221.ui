@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>224</width>
-    <height>258</height>
+    <width>559</width>
+    <height>249</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -78,7 +78,7 @@
     <string>RSI 4h</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="lineEdit_2">
+  <widget class="QLineEdit" name="rsi_10m">
    <property name="geometry">
     <rect>
      <x>90</x>
@@ -88,7 +88,7 @@
     </rect>
    </property>
   </widget>
-  <widget class="QLineEdit" name="lineEdit_3">
+  <widget class="QLineEdit" name="rsi_30m">
    <property name="geometry">
     <rect>
      <x>90</x>
@@ -98,7 +98,7 @@
     </rect>
    </property>
   </widget>
-  <widget class="QLineEdit" name="lineEdit_4">
+  <widget class="QLineEdit" name="rsi_1h">
    <property name="geometry">
     <rect>
      <x>90</x>
@@ -108,7 +108,7 @@
     </rect>
    </property>
   </widget>
-  <widget class="QLineEdit" name="lineEdit_5">
+  <widget class="QLineEdit" name="rsi_4h">
    <property name="geometry">
     <rect>
      <x>90</x>
@@ -118,7 +118,7 @@
     </rect>
    </property>
   </widget>
-  <widget class="QLineEdit" name="lineEdit_6">
+  <widget class="QLineEdit" name="price">
    <property name="geometry">
     <rect>
      <x>80</x>
@@ -154,7 +154,7 @@
     <string>Total</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="lineEdit_7">
+  <widget class="QLineEdit" name="total">
    <property name="geometry">
     <rect>
      <x>80</x>
@@ -188,6 +188,105 @@
      <string>xrp</string>
     </property>
    </item>
+  </widget>
+  <widget class="QLabel" name="label_8">
+   <property name="geometry">
+    <rect>
+     <x>240</x>
+     <y>70</y>
+     <width>81</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>end_price</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="end_price">
+   <property name="geometry">
+    <rect>
+     <x>330</x>
+     <y>70</y>
+     <width>113</width>
+     <height>21</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="highest">
+   <property name="geometry">
+    <rect>
+     <x>320</x>
+     <y>130</y>
+     <width>113</width>
+     <height>21</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_9">
+   <property name="geometry">
+    <rect>
+     <x>240</x>
+     <y>130</y>
+     <width>71</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>highest</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lowest">
+   <property name="geometry">
+    <rect>
+     <x>320</x>
+     <y>190</y>
+     <width>113</width>
+     <height>21</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_10">
+   <property name="geometry">
+    <rect>
+     <x>240</x>
+     <y>190</y>
+     <width>71</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>lowest</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="end_price_2">
+   <property name="geometry">
+    <rect>
+     <x>330</x>
+     <y>100</y>
+     <width>113</width>
+     <height>21</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="highest_2">
+   <property name="geometry">
+    <rect>
+     <x>320</x>
+     <y>160</y>
+     <width>113</width>
+     <height>21</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lowest_2">
+   <property name="geometry">
+    <rect>
+     <x>320</x>
+     <y>220</y>
+     <width>113</width>
+     <height>21</height>
+    </rect>
+   </property>
   </widget>
  </widget>
  <resources/>
