@@ -180,6 +180,11 @@
    </item>
    <item>
     <property name="text">
+     <string>pengu</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
      <string>hive</string>
     </property>
    </item>
