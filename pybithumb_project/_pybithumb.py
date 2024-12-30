@@ -8,7 +8,6 @@ import time
 import winsound
 import os
 import pandas as pd
-import time
 import calendar, requests
 from datetime import datetime
 import webbrowser
@@ -17,9 +16,14 @@ from PyQt5 import uic
 from PyQt5 import QtCore
 from PyQt5.QtCore import Qt
 from PyQt5.QtWidgets import *
-import time
 import pybithumb
+import ccxt
+import jwt 
+import uuid
 
+accessKey = 'bd8990f313e01bc880afdcdffa1dda3ced912d5728ae5e'
+secretKey = 'NDkyNDYyZTM5NTk0YWZmOTk5ZmMxZGVkMWRjM2Y4ZGZkYWRiZmMxOWRjMzhlYTkyMmY1NDI3YTE1YjBhMw=='
+apiUrl = 'https://api.bithumb.com'
 
 f = open("D:/key.txt", 'r')
 lines = f.readlines()
@@ -30,7 +34,39 @@ sec_key = lines[1]
 print(sec_key)
 bithumb = pybithumb.Bithumb(con_key, sec_key)
 
+def get_info(name):
+
+    
+    # Generate access token
+    payload = {
+        'access_key': accessKey,
+        'nonce': str(uuid.uuid4()),
+        'timestamp': round(time.time() * 1000)
+    }
+    jwt_token = jwt.encode(payload, secretKey)
+    authorization_token = 'Bearer {}'.format(jwt_token)
+    headers = {
+      'Authorization': authorization_token
+    }
+    
+    try:
+        # Call API
+        response = requests.get(apiUrl + '/v1/accounts', headers=headers)
+        # handle to success or fail
+        tmp = response.json()
+    
+        for t in tmp:
+            if name == t['currency']:
+                return t
+        
+    except Exception as err:
+        # handle exception
+        return 'none'
+
+
 form_class = uic.loadUiType("D:/241221.ui")[0]
+
+
 def rsi(name,time):
     now = datetime.now()
 
@@ -93,11 +129,16 @@ class WindowClass(QMainWindow, form_class):
 
 
     def setTableWidgetData(self):
+        
           ticker = self.comboBox.currentText()
           detail = bithumb.get_market_detail(ticker)
           price_ticker = round(pybithumb.get_current_price(ticker),4)
           balance = bithumb.get_balance(ticker)
           total = round(balance[0] * pybithumb.get_current_price(ticker),1)
+          try:
+              self.avg_price.setText(get_info(ticker.upper())['avg_buy_price'])
+          except:
+              self.avg_price.setText("none")
           self.price.setText(str(price_ticker))
           self.total.setText(str(total))
           self.rsi_10m.setText(str(rsi(ticker,'10m')))
@@ -178,6 +219,14 @@ if __name__ == "__main__":
 # In[ ]:
 
 
+
+
+
+
+
+
+
+ 
 
 
 
