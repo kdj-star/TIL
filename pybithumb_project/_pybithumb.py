@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[1]:
+# In[ ]:
 
 
 import time
@@ -20,17 +20,21 @@ import pybithumb
 import ccxt
 import jwt 
 import uuid
+f = open("D:/_key.txt", 'r')
+lines = f.readlines()
 
-accessKey = 'bd8990f313e01bc880afdcdffa1dda3ced912d5728ae5e'
-secretKey = 'NDkyNDYyZTM5NTk0YWZmOTk5ZmMxZGVkMWRjM2Y4ZGZkYWRiZmMxOWRjMzhlYTkyMmY1NDI3YTE1YjBhMw=='
+accessKey = lines[0].split('\n')[0]
+print(len(accessKey))
+secretKey = lines[1].split('\n')[0]
+print(len(secretKey))
+
 apiUrl = 'https://api.bithumb.com'
-
 f = open("D:/key.txt", 'r')
 lines = f.readlines()
 
 con_key = lines[0].split('\n')[0]
 print(con_key)
-sec_key = lines[1]
+sec_key = lines[1].split('\n')[0]
 print(sec_key)
 bithumb = pybithumb.Bithumb(con_key, sec_key)
 
@@ -138,7 +142,9 @@ class WindowClass(QMainWindow, form_class):
           try:
               self.avg_price.setText(get_info(ticker.upper())['avg_buy_price'])
           except:
+              print(get_info(ticker.upper()))
               self.avg_price.setText("none")
+              
           self.price.setText(str(price_ticker))
           self.total.setText(str(total))
           self.rsi_10m.setText(str(rsi(ticker,'10m')))
