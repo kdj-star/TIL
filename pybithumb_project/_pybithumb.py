@@ -146,6 +146,7 @@ class WindowClass(QMainWindow, form_class):
               self.avg_price.setText("none")
               
           self.price.setText(str(price_ticker))
+          self.price.setStyleSheet("Color : green")
           self.total.setText(str(total))
           self.rsi_10m.setText(str(rsi(ticker,'10m')))
           self.rsi_30m.setText(str(rsi(ticker,'30m')))
