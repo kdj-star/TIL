@@ -29,14 +29,19 @@ secretKey = lines[1].split('\n')[0]
 print(len(secretKey))
 
 apiUrl = 'https://api.bithumb.com'
-f = open("D:/key.txt", 'r')
-lines = f.readlines()
 
-con_key = lines[0].split('\n')[0]
-print(con_key)
-sec_key = lines[1].split('\n')[0]
-print(sec_key)
-bithumb = pybithumb.Bithumb(con_key, sec_key)
+
+def currency_info(name):
+    _name=name.upper()
+    url = "https://api.bithumb.com/v1/ticker?markets=KRW-"+_name
+    
+    headers = {"accept": "application/json"}
+    
+    response = requests.get(url, headers=headers)
+    
+    return response.json()[0]
+
+
 
 def get_info(name):
 
@@ -127,38 +132,89 @@ class WindowClass(QMainWindow, form_class):
         self.setWindowFlags(Qt.WindowStaysOnTopHint)
         self.buy.clicked.connect(self._buy)
         self.sell.clicked.connect(self._sell)
-        self.timer.timeout.connect(self.setTableWidgetData)
+        self.timer.timeout.connect(self.setWidgetData)
         self.timer.start(1000)
         #self.pushButton.clicked.connect(_print)
 
 
-    def setTableWidgetData(self):
+    def setWidgetData(self):
         
           ticker = self.comboBox.currentText()
-          detail = bithumb.get_market_detail(ticker)
-          price_ticker = round(pybithumb.get_current_price(ticker),4)
-          balance = bithumb.get_balance(ticker)
-          total = round(balance[0] * pybithumb.get_current_price(ticker),1)
+          price_ticker = currency_info(ticker)['trade_price']
+          balance = ""
+          avg_buy_price =""
           try:
-              self.avg_price.setText(get_info(ticker.upper())['avg_buy_price'])
+              avg_buy_price = get_info(ticker.upper())['avg_buy_price']
           except:
-              print(get_info(ticker.upper()))
-              self.avg_price.setText("none")
-              
+              avg_buy_price ="none"
+          try:
+              balance = float(get_info(ticker.upper())['balance'])
+          except:
+              balance = 0      
+          try:
+              gap =  price_ticker - float(avg_buy_price)
+          except:
+              gap =0
+
+          total = round(balance * price_ticker,1)
+
+          gap_percent = ''
+        
+          if avg_buy_price != 'none':
+            tmp = float(price_ticker) - float(avg_buy_price)
+            tmp = str(round(tmp / float(avg_buy_price)*100,1))
+            gap_percent = ' / ' + tmp + '%'
+        
+          self.gap.setText(str(gap)+gap_percent)
+          if gap < 0 :
+            self.gap.setStyleSheet("Color : blue")
+          elif gap == 0:
+            self.gap.setStyleSheet("Color : black")
+          else :
+            self.gap.setStyleSheet("Color : red")
+          self.avg_price.setText(avg_buy_price)
           self.price.setText(str(price_ticker))
-          self.price.setStyleSheet("Color : green")
+          if avg_buy_price != 'none':
+              if price_ticker < float(avg_buy_price):
+                   self.price.setStyleSheet("Color : blue")
+              elif price_ticker == float(avg_buy_price):
+                   self.price.setStyleSheet("Color : black")
+              else :
+                   self.price.setStyleSheet("Color : red")
+                  
           self.total.setText(str(total))
           self.rsi_10m.setText(str(rsi(ticker,'10m')))
           self.rsi_30m.setText(str(rsi(ticker,'30m')))
           self.rsi_1h.setText(str(rsi(ticker,'1h')))
           self.rsi_4h.setText(str(rsi(ticker,'4h')))
-          self.end_price.setText(str(round(detail[0],4)))
-          self.highest.setText(str(round(detail[1],4)))
-          self.lowest.setText(str(round(detail[2],4)))
-          self.end_price_2.setText(str(round(price_ticker-detail[0],4)))
-          self.highest_2.setText(str(round(price_ticker-detail[1],4)))
-          self.lowest_2.setText(str(round(price_ticker-detail[2],4)))
+          self.end_price.setText(str(round(currency_info(ticker)['opening_price'],4)))
+          self.highest.setText(str(round(currency_info(ticker)['high_price'],4)))
+          self.lowest.setText(str(round(currency_info(ticker)['low_price'],4)))
+          self.end_price_2.setText(str(round(price_ticker-currency_info(ticker)['opening_price'],4)))
+          if price_ticker < float(round(currency_info(ticker)['opening_price'],4)):
+               self.end_price_2.setStyleSheet("Color : blue")
+          elif price_ticker == float(round(currency_info(ticker)['opening_price'],4)):
+               self.end_price_2.setStyleSheet("Color : black")
+          else :
+               self.end_price_2.setStyleSheet("Color : red")
+          self.highest_2.setText(str(round(price_ticker-currency_info(ticker)['high_price'],4)))
+          if price_ticker < float(round(currency_info(ticker)['high_price'],4)):
+               self.highest_2.setStyleSheet("Color : blue")
+          elif price_ticker == float(round(currency_info(ticker)['high_price'],4)):
+               self.highest_2.setStyleSheet("Color : black")
+          else :
+               self.highest_2.setStyleSheet("Color : red")
+          
+          self.lowest_2.setText(str(round(price_ticker-currency_info(ticker)['low_price'],4)))
+          if price_ticker < float(round(currency_info(ticker)['low_price'],4)):
+               self.lowest_2.setStyleSheet("Color : blue")
+          elif price_ticker == float(round(currency_info(ticker)['low_price'],4)):
+               self.lowest_2.setStyleSheet("Color : black")
+          else :
+               self.lowest_2.setStyleSheet("Color : red")
+          
 
+    
     def _buy(self):
         
         buttonReply = QMessageBox.information(
@@ -170,12 +226,6 @@ class WindowClass(QMainWindow, form_class):
         if buttonReply == QMessageBox.Yes:
             while True :
                 try:
-                    print('buy')
-                    ticker = self.comboBox.currentText()
-                    detail = bithumb.get_market_detail(ticker)
-                    price_ticker = round(pybithumb.get_current_price(ticker),4)
-                    balance = bithumb.get_balance('btc')[2] 
-                    bithumb.buy_market_order(ticker,int(balance/price_ticker*0.99))
                     break
                 except:
                     pass
@@ -196,13 +246,6 @@ class WindowClass(QMainWindow, form_class):
      if buttonReply == QMessageBox.Yes:
         while True :
             try:
-                ticker = self.comboBox.currentText()
-                detail = bithumb.get_market_detail(ticker)
-                price_ticker = round(pybithumb.get_current_price(ticker),4)
-                balance = bithumb.get_balance(ticker)
-                total = round(balance[0] * pybithumb.get_current_price(ticker),1)
-                print('sell')
-                bithumb.sell_market_order(ticker,int(balance[0]))
                 break
             except:
                 pass
@@ -224,12 +267,6 @@ if __name__ == "__main__":
 
 
 # In[ ]:
-
-
-
-
-
-
 
 
 
