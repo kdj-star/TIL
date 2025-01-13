@@ -152,28 +152,37 @@ class WindowClass(QMainWindow, form_class):
           except:
               balance = 0      
           try:
-              gap =  price_ticker - float(avg_buy_price)
+              gap =  round(price_ticker - float(avg_buy_price),2)
           except:
               gap =0
 
           total = round(balance * price_ticker,1)
 
           gap_percent = ''
+          tmp = 0
         
           if avg_buy_price != 'none':
             tmp = float(price_ticker) - float(avg_buy_price)
-            tmp = str(round(tmp / float(avg_buy_price)*100,1))
-            gap_percent = ' / ' + tmp + '%'
+            tmp = round(tmp / float(avg_buy_price)*100,2)
+            gap_percent = str(tmp) + '%'
         
-          self.gap.setText(str(gap)+gap_percent)
-          if gap < 0 :
-            self.gap.setStyleSheet("Color : blue")
-          elif gap == 0:
-            self.gap.setStyleSheet("Color : black")
+          try:
+              self.gap_price.setText(str(round(float(price_ticker) - float(avg_buy_price),4)))
+          except:
+              pass
+          self.gap_percent.setText(gap_percent)
+          if tmp < 0 :
+            self.gap_price.setStyleSheet("Color : blue")
+            self.gap_percent.setStyleSheet("Color : blue")
+          elif tmp == 0:
+            self.gap_price.setStyleSheet("Color : black")
+            self.gap_percent.setStyleSheet("Color : black")
           else :
-            self.gap.setStyleSheet("Color : red")
+            self.gap_price.setStyleSheet("Color : red")
+            self.gap_percent.setStyleSheet("Color : red")
+              
           self.avg_price.setText(avg_buy_price)
-          self.price.setText(str(price_ticker))
+          self.price.setText(str(round(price_ticker,5)))
           if avg_buy_price != 'none':
               if price_ticker < float(avg_buy_price):
                    self.price.setStyleSheet("Color : blue")
@@ -251,10 +260,10 @@ class WindowClass(QMainWindow, form_class):
                 pass
      else:
         print('No clicked.')
-        
+            
 
 
-    
+     
 if __name__ == "__main__":
     app = QApplication(sys.argv)
     myWindow = WindowClass()
